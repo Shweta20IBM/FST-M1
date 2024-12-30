@@ -1,0 +1,11 @@
+--activity1
+
+CREATE table salesman( 
+    salesman_id INT (NOT NULL),
+    salesman_name varchar(20),
+    salesman_city varchar(20),
+    commission int 
+        );
+
+describe salesman;
+
