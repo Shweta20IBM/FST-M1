@@ -1,0 +1,62 @@
+1. SQL Statement to Know Which Salesman is Working for Which Customer
+sql
+Copy code
+SELECT 
+    customers.customer_name,
+    salesmen.salesman_name
+FROM 
+    customers
+JOIN 
+    salesmen 
+ON 
+    customers.salesman_id = salesmen.salesman_id;
+This assumes you have two tables:
+
+customers (with columns customer_name and salesman_id)
+salesmen (with columns salesman_name and salesman_id).
+2. SQL Statement to List Customers in Ascending Order Who Hold a Grade Less Than 300 and Work Through Any Salesman
+sql
+Copy code
+SELECT 
+    customer_name, grade, salesman_id
+FROM 
+    customers
+WHERE 
+    grade < 300
+ORDER BY 
+    customer_name ASC;
+3. SQL Statement to Find Customers Who Appointed Salesmen Getting a Commission Greater Than 12%
+sql
+Copy code
+SELECT 
+    customers.customer_name, 
+    salesmen.salesman_name, 
+    salesmen.commission
+FROM 
+    customers
+JOIN 
+    salesmen 
+ON 
+    customers.salesman_id = salesmen.salesman_id
+WHERE 
+    salesmen.commission > 0.12;
+4. SQL Statement to Find Order Details
+sql
+Copy code
+SELECT 
+    orders.order_no,
+    orders.order_date,
+    orders.amount AS order_amount,
+    customers.customer_name,
+    salesmen.salesman_name,
+    salesmen.commission AS commission_rate
+FROM 
+    orders
+JOIN 
+    customers 
+ON 
+    orders.customer_id = customers.customer_id
+JOIN 
+    salesmen 
+ON 
+    customers.salesman_id = salesmen.salesman_id;
